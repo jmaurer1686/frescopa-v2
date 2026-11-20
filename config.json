@@ -1,0 +1,32 @@
+{
+  "public": {
+    "default": {
+      "commerce-endpoint": "https://na1-sandbox.api.commerce.adobe.com/QrfgtqmB84aohQct13GaFX/graphql",
+      "headers": {
+        "cs": {
+          "AC-View-ID": "5173cc38-7db2-461c-97fb-c16bf906a495",
+          "AC-Price-Book-ID": "frescopa"
+        }
+      },
+      "commerce-b2b-enabled": false,
+      "commerce-companies-enabled": false,
+      "commerce-assets-enabled": true,
+      "adobe-commerce-optimizer": true,
+      "analytics": {
+        "base-currency-code": "USD",
+        "environment": "Testing",
+        "environment-id": "QrfgtqmB84aohQct13GaFX",
+        "locale": "en-US",
+        "store-url": "https://main--frescopa-v2--jmaurer1686.aem.live/",
+        "store-view-currency-code": "USD",
+        "storefront-template": "Other",
+        "view-id": "5173cc38-7db2-461c-97fb-c16bf906a495"
+      },
+      "plugins": {
+        "picker": {
+          "rootCategory": "2"
+        }
+      }
+    }
+  }
+}
