@@ -4,8 +4,8 @@
       "commerce-endpoint": "https://na1-sandbox.api.commerce.adobe.com/QrfgtqmB84aohQct13GaFX/graphql",
       "headers": {
         "cs": {
-          "AC-View-ID": "5173cc38-7db2-461c-97fb-c16bf906a495",
-          "AC-Price-Book-ID": "frescopa"
+          "AC-View-ID": "7e275904-b1ce-48e2-b61f-6abf44a60952",
+          "AC-Price-Book-ID": "v2-default"
         }
       },
       "commerce-b2b-enabled": false,
@@ -20,7 +20,7 @@
         "store-url": "https://main--frescopa-v2--jmaurer1686.aem.live/",
         "store-view-currency-code": "USD",
         "storefront-template": "Other",
-        "view-id": "5173cc38-7db2-461c-97fb-c16bf906a495"
+        "view-id": "7e275904-b1ce-48e2-b61f-6abf44a60952"
       },
       "plugins": {
         "picker": {
