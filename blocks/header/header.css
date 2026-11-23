@@ -959,7 +959,9 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
   body header nav .nav-sections .default-content-wrapper > ul > li {
     font-size: 1.2rem;
     letter-spacing: 0.16em;
+    padding: var(--spacing-xsmall) 12px;
     text-transform: uppercase;
+    white-space: nowrap;
   }
 
   body header nav .nav-sections .default-content-wrapper > ul > li .submenu-wrapper {
@@ -981,10 +983,6 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
     gap: 0;
   }
 
-  body header nav .nav-sections .default-content-wrapper > ul > li {
-    padding: var(--spacing-xsmall) 12px;
-    white-space: nowrap;
-  }
 }
 
 @media (min-width: 900px) and (max-width: 1150px) {
@@ -996,7 +994,6 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
 }
 
 @media (min-width: 900px) {
-
   /* "Shop all" pill: make a link bold in DA to get a button */
   body header nav .nav-sections .submenu-wrapper a.button:any-link {
     display: inline-flex;
