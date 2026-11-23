@@ -831,8 +831,8 @@ main .section.teal a.button:not(.amber, .roast) {
   color: var(--roast);
 }
 
-/* arch frame: add class "arch" to an image's wrapper or a section block */
-.arch {
+/* arch frame for an image wrapper (not the columns/cards blocks, which style their own pictures/tiles) */
+.arch:not(.columns, .cards) {
   border-radius: var(--shape-arch);
   overflow: hidden;
 }
