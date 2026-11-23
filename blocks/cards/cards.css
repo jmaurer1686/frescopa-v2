@@ -221,3 +221,74 @@ main .cards.products .cards-card-body a:focus-visible {
     transform: none;
   }
 }
+
+/* Ritual arch tiles (home page). In DA: Cards (arch), each row = image + a link */
+main .cards.arch > ul {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+main .cards.arch > ul > li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 0;
+  border-radius: var(--shape-arch);
+  overflow: hidden;
+  background: var(--crema);
+  color: var(--ink);
+  text-align: center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s;
+}
+
+main .cards.arch > ul > li:hover {
+  transform: translateY(-8px);
+  background: var(--amber);
+}
+
+main .cards.arch > ul > li img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+main .cards.arch .cards-card-body {
+  margin: 0;
+  padding: 16px 12px 24px;
+}
+
+main .cards.arch .cards-card-body p {
+  margin: 0;
+}
+
+main .cards.arch .cards-card-body a:any-link {
+  color: var(--ink);
+  font-family: var(--heading-font-family);
+  font-size: 2.2rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* whole tile is clickable */
+main .cards.arch .cards-card-body a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+@media (min-width: 900px) {
+  main .cards.arch > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  main .cards.arch > ul {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main .cards.arch > ul > li:hover {
+    transform: none;
+  }
+}

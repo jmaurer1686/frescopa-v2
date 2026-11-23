@@ -31,3 +31,121 @@
     order: unset;
   }
 }
+
+/* Ritual variants (home page). In DA: Columns (arch) | (circle) | (oval) | (card) */
+main .columns.arch > div,
+main .columns.circle > div,
+main .columns.oval > div,
+main .columns.card > div {
+  gap: clamp(24px, 5vw, 80px);
+}
+
+main .columns.arch .columns-img-col,
+main .columns.circle .columns-img-col,
+main .columns.oval .columns-img-col {
+  position: relative;
+}
+
+main .columns.arch .columns-img-col picture,
+main .columns.circle .columns-img-col picture,
+main .columns.oval .columns-img-col picture {
+  display: block;
+  margin-inline: auto;
+  overflow: hidden;
+}
+
+main .columns.arch .columns-img-col img,
+main .columns.circle .columns-img-col img,
+main .columns.oval .columns-img-col img {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* arch window with an amber sun behind it */
+main .columns.arch .columns-img-col::before {
+  content: "";
+  position: absolute;
+  top: -6%;
+  right: 4%;
+  width: 70%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--amber);
+}
+
+main .columns.arch .columns-img-col picture {
+  position: relative;
+  width: min(100%, 440px);
+  aspect-ratio: 3 / 4;
+  border-radius: var(--shape-arch);
+  background: var(--roast-2);
+}
+
+main .columns.circle .columns-img-col picture {
+  width: min(100%, 460px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: 0 40px 80px rgb(33 18 8 / 28%);
+}
+
+main .columns.oval .columns-img-col picture {
+  width: 100%;
+  aspect-ratio: 1.45;
+  border-radius: 50%;
+  box-shadow: 0 30px 60px rgb(33 18 8 / 22%);
+}
+
+/* address card in an arch */
+main .columns.card > div > div:last-child {
+  padding: 72px 36px 40px;
+  border-radius: var(--shape-arch);
+  background: var(--crema);
+  color: var(--ink);
+  text-align: center;
+}
+
+main .columns.card > div > div:last-child h3 {
+  margin-top: 0;
+  font-size: 3rem;
+}
+
+main .columns.card > div > div:last-child p {
+  margin: 8px 0;
+}
+
+main .columns.card > div > div:last-child a:any-link {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+/* type and buttons used by the Ritual sections */
+main h1 em,
+main h2 em {
+  font-style: normal;
+  font-weight: 400;
+}
+
+main .section.roast h1 em {
+  color: var(--amber);
+}
+
+main .section.roast .columns.arch a.button:any-link {
+  border-color: var(--amber);
+  background-color: var(--amber);
+  color: var(--roast);
+}
+
+main .section.crema .columns p > em:only-child {
+  display: block;
+  max-width: 26ch;
+  color: var(--ember);
+  font-family: var(--heading-font-family);
+  font-size: 2.6rem;
+  line-height: 1.25;
+}
+
+main .section.coral > .default-content-wrapper h2 {
+  font-size: clamp(4rem, 1rem + 8.4vw, 9.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.025em;
+}
