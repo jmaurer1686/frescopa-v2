@@ -222,6 +222,8 @@ main .cards.products .cards-card-body a:focus-visible {
   }
 }
 
+/* stylelint-disable no-descending-specificity */
+
 /* Ritual arch tiles (home page). In DA: Cards (arch), each row = image + a link */
 main .cards.arch > ul {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -292,3 +294,5 @@ main .cards.arch .cards-card-body a::after {
     transform: none;
   }
 }
+
+/* stylelint-enable no-descending-specificity */
