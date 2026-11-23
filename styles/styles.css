@@ -846,6 +846,14 @@ main .section.teal a.button:not(.amber, .roast) {
   }
 }
 
+/* Wishlist hidden for the demo. Delete this rule to bring it back. */
+header .wishlist-wrapper,
+.product-discovery-product-actions__wishlist-toggle,
+.product-details__buttons__add-to-wishlist,
+.footer__button--wishlist-toggle {
+  display: none !important;
+}
+
 /* stylelint-enable no-duplicate-selectors, no-descending-specificity */
 
 /**
