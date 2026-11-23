@@ -129,6 +129,29 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
+/**
+ * Loads the optional announcement bar shown above the nav.
+ * Content comes from the /announcement fragment, or from the page's `announcement` metadata.
+ * @returns {Promise<HTMLElement|null>} The bar, or null when there is nothing to show
+ */
+async function loadAnnouncementBar() {
+  try {
+    const meta = getMetadata('announcement');
+    const path = meta ? new URL(meta, window.location).pathname : '/announcement';
+    const fragment = await loadFragment(path);
+    const content = fragment?.querySelector('.default-content-wrapper');
+    if (!content?.childNodes.length) return null;
+    const bar = document.createElement('div');
+    bar.className = 'announcement-bar';
+    bar.setAttribute('role', 'region');
+    bar.setAttribute('aria-label', labels.Global?.Promotion ?? 'Promotion');
+    bar.append(...content.childNodes);
+    return bar;
+  } catch (e) {
+    return null;
+  }
+}
+
 const subMenuHeader = document.createElement('div');
 subMenuHeader.classList.add('submenu-header');
 subMenuHeader.innerHTML = `<h5 class="back-link">${labels.Global?.AllCategories ?? 'All Categories'}</h5><hr />`;
@@ -555,6 +578,9 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
+  const announcementBar = await loadAnnouncementBar();
+  if (announcementBar) block.prepend(announcementBar);
 
   navWrapper.addEventListener('mouseout', (e) => {
     if (isDesktop.matches && !nav.contains(e.relatedTarget)) {
