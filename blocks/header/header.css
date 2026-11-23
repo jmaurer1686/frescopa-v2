@@ -1018,7 +1018,7 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
   /* column heading */
   body header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] .submenu-wrapper > ul > li {
     flex: 1 1 0;
-    max-width: none;
+    max-width: 320px;
     min-width: 160px;
     padding: 0;
     font-family: var(--heading-font-family);
@@ -1062,6 +1062,53 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
   }
 
   body header nav .nav-sections .default-content-wrapper > ul > li .submenu-wrapper > ul > li > ul > li a:any-link:hover {
+    color: var(--roast);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  /* simple dropdown (e.g. Account): items with no sub-lists become one narrow column under the item */
+  body header nav .nav-sections .default-content-wrapper > ul > li:has(> .submenu-wrapper > ul:not(:has(> li > ul))) {
+    position: relative;
+  }
+
+  body header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] .submenu-wrapper:has(> ul:not(:has(> li > ul))) {
+    left: 0;
+    min-width: 240px;
+    padding: var(--spacing-small) var(--spacing-medium);
+    top: calc(100% + 12px);
+    width: max-content;
+  }
+
+  body header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] .submenu-wrapper > ul:not(:has(> li > ul)) {
+    flex-direction: column;
+    gap: 0;
+    width: auto;
+  }
+
+  body header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] .submenu-wrapper > ul:not(:has(> li > ul)) > li {
+    flex: 0 0 auto;
+    max-width: none;
+    min-width: 0;
+    font-family: var(--type-base-font-family);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ember);
+  }
+
+  body header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] .submenu-wrapper > ul:not(:has(> li > ul)) > li :is(a:any-link, button) {
+    display: block;
+    padding: 10px 0;
+    color: var(--ember);
+    font: inherit;
+    letter-spacing: inherit;
+    text-align: start;
+    text-transform: inherit;
+  }
+
+  body header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] .submenu-wrapper > ul:not(:has(> li > ul)) > li :is(a:any-link, button):hover {
     color: var(--roast);
     text-decoration: underline;
     text-underline-offset: 4px;
