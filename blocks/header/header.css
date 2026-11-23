@@ -1037,6 +1037,7 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
     overflow: visible;
     padding: var(--spacing-xsmall) 0 0;
     border-top: 1px solid rgb(73 20 24 / 20%);
+    position: static;
     width: auto;
   }
 
@@ -1071,12 +1072,20 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
   body header nav .nav-sections .default-content-wrapper > ul > li .submenu-wrapper > ul > li > ul > li a:is([href$='/coffee'], [href$='/tea'], [href$='/equipment']):any-link {
     display: inline-flex;
     align-items: center;
-    margin-top: var(--spacing-medium);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
     padding: 14px 30px;
     border-radius: var(--shape-pill);
     background-color: var(--ember);
     color: var(--crema);
     letter-spacing: 0.12em;
+  }
+
+  /* leave room under the columns for the pinned pill */
+  body header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] .submenu-wrapper > ul:has(> li > ul > li > a:is([href$='/coffee'], [href$='/tea'], [href$='/equipment'])) {
+    padding-bottom: 96px;
   }
 
   body header nav .nav-sections .default-content-wrapper > ul > li .submenu-wrapper > ul > li > ul > li a:is([href$='/coffee'], [href$='/tea'], [href$='/equipment']):any-link:hover {
