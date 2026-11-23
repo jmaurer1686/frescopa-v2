@@ -950,7 +950,10 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
 
   body header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] .submenu-wrapper > ul {
     align-items: flex-start;
+    flex-flow: row nowrap;
     gap: var(--spacing-xbig);
+    max-height: none;
+    min-height: 0;
     overflow: visible;
     width: min(1200px, 100%);
   }
