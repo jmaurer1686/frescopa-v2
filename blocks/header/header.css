@@ -905,8 +905,34 @@ body:has(.seller-assisted-buying-banner) {
 }
 
 body header {
-  --frescopa-maroon: #5c1a1f;
-  --frescopa-cream: #f8f1e7;
+  --frescopa-maroon: var(--ember);
+  --frescopa-cream: var(--crema-2);
+}
+
+/* Ritual header: crema bar, sticky on desktop, semibold nav links */
+body header .nav-wrapper,
+body header nav .nav-tools,
+body header nav .nav-hamburger button {
+  background-color: var(--crema);
+}
+
+body header .nav-wrapper {
+  border-bottom: 1px solid rgb(73 20 24 / 12%);
+}
+
+body header nav .nav-sections ul > li,
+body header nav .nav-sections ul > li > a,
+body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-link {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+@media (min-width: 900px) {
+  body header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+  }
 }
 
 body header nav .nav-brand img {

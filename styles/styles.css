@@ -640,6 +640,175 @@ body.columns main > .section:empty {
   }
 }
 
+/* ==========================================================================
+   Frescopa "The Ritual" theme
+   Palette, type and shapes from the D1 prototype. Overrides the dropin
+   design tokens above; loaded last so it wins. `.dropin-design` is included
+   because dropin containers re-declare the tokens at that scope.
+   ========================================================================== */
+:root, .dropin-design {
+  /* Ritual palette */
+  --roast: #211208;
+  --roast-2: #342215;
+  --crema: #f5ead9;
+  --crema-2: #ebd8be;
+  --crema-light: #fbf4ea;
+  --amber: #f5ae39;
+  --amber-hover: #ffc44f;
+  --ember: #972622;
+  --ember-dark: #831a18;
+  --ember-light: #d95544;
+  --teal: #00647d;
+  --coral: #eb7955;
+  --ink: #491418;
+
+  /* Brand scale: ember for actions, roast for emphasis */
+  --color-brand-300: var(--ember-light);
+  --color-brand-500: var(--ember);
+  --color-brand-600: var(--ember-dark);
+  --color-brand-700: var(--roast);
+
+  /* Warm neutrals (cards and fields stay white via neutral-50) */
+  --color-neutral-100: var(--crema-light);
+  --color-neutral-200: var(--crema);
+  --color-neutral-300: var(--crema-2);
+  --color-neutral-400: #ddc6ab;
+  --color-neutral-800: var(--ink);
+  --color-neutral-900: var(--roast);
+  --background-color: var(--crema);
+
+  /* Type */
+  --heading-font-family: 'Bodoni Moda', 'Bodoni 72', didot, georgia, serif;
+  --type-base-font-family: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --type-body-1-default-letter-spacing: 0;
+  --type-body-1-strong-letter-spacing: 0;
+  --type-body-1-emphasized-letter-spacing: 0;
+  --type-body-2-default-letter-spacing: 0;
+  --type-body-2-strong-letter-spacing: 0;
+  --type-body-2-emphasized-letter-spacing: 0;
+  --type-button-1-letter-spacing: 0.12em;
+  --type-button-2-letter-spacing: 0.12em;
+
+  /* Shapes */
+  --shape-arch: 999px 999px 24px 24px;
+  --shape-pill: 999px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--heading-font-family);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+h1 { font-size: clamp(3.6rem, 1.6rem + 5vw, 7.2rem); }
+h2 { font-size: clamp(3rem, 1.6rem + 3vw, 5rem); }
+h3 { font-size: clamp(2.4rem, 1.6rem + 1.6vw, 3.4rem); }
+h4 { font-size: 2.4rem; }
+
+::selection {
+  background: var(--amber);
+  color: var(--roast);
+}
+
+/* pill buttons: uppercase, wide tracking */
+main a.button:any-link,
+button.button {
+  border-radius: var(--shape-pill);
+  min-height: 48px;
+  padding: 14px 30px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s;
+}
+
+main a.button:hover,
+button.button:hover {
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* variants usable from DA: "button amber", "button roast" */
+a.button.amber,
+button.button.amber {
+  border-color: var(--amber);
+  background-color: var(--amber);
+  color: var(--roast);
+}
+
+a.button.amber:hover,
+button.button.amber:hover {
+  border-color: var(--amber-hover);
+  background-color: var(--amber-hover);
+}
+
+a.button.roast,
+button.button.roast {
+  border-color: var(--roast);
+  background-color: var(--roast);
+  color: var(--crema);
+}
+
+a.button.roast:hover,
+button.button.roast:hover {
+  border-color: var(--roast-2);
+  background-color: var(--roast-2);
+}
+
+/* one colour ground per section: Section Metadata "Style" = roast | amber | crema | coral | teal | ember */
+main .section.roast,
+main .section.amber,
+main .section.crema,
+main .section.coral,
+main .section.teal,
+main .section.ember {
+  margin: 0;
+  padding: var(--spacing-xxlarge) 0;
+}
+
+main .section.roast { background: var(--roast); color: var(--crema); }
+main .section.amber { background: var(--amber); color: var(--roast); }
+main .section.crema { background: var(--crema); color: var(--ink); }
+main .section.coral { background: var(--coral); color: var(--roast); }
+main .section.teal { background: var(--teal); color: var(--crema); }
+main .section.ember { background: var(--ember); color: var(--crema); }
+
+main .section.roast :is(h1, h2, h3, h4),
+main .section.teal :is(h1, h2, h3, h4),
+main .section.ember :is(h1, h2, h3, h4) { color: var(--crema); }
+
+main .section.amber :is(h1, h2, h3, h4),
+main .section.coral :is(h1, h2, h3, h4) { color: var(--roast); }
+
+main .section.roast a.button:not(.amber, .roast),
+main .section.teal a.button:not(.amber, .roast) {
+  border-color: var(--crema);
+  background-color: var(--crema);
+  color: var(--roast);
+}
+
+/* arch frame: add class "arch" to an image's wrapper or a section block */
+.arch {
+  border-radius: var(--shape-arch);
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
 /**
 * Reset main element visibility
 * https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden

@@ -1,7 +1,34 @@
 footer {
-    background-color: var(--color-neutral-100);
+    background-color: var(--roast);
+    color: var(--crema);
     font: var(--type-body-2-default-font);
     letter-spacing: var(--type-body-2-default-letter-spacing);
+}
+
+footer .footer :is(h1, h2, h3, h4, h5, h6) {
+    color: var(--crema);
+    font-family: var(--type-base-font-family);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+}
+
+footer .footer a:any-link {
+    color: var(--crema);
+    font: inherit;
+    letter-spacing: inherit;
+    text-decoration: none;
+}
+
+footer .footer a:any-link:hover {
+    color: var(--amber);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+footer .storeview-switcher-button {
+    color: var(--crema);
 }
 
 footer .footer > div {
