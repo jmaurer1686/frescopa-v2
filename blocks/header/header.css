@@ -1067,6 +1067,24 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
     text-underline-offset: 4px;
   }
 
+  /* "Shop all" links (they point at a top-level category) render as a pill */
+  body header nav .nav-sections .default-content-wrapper > ul > li .submenu-wrapper > ul > li > ul > li a:is([href$='/coffee'], [href$='/tea'], [href$='/equipment']):any-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: var(--spacing-medium);
+    padding: 14px 30px;
+    border-radius: var(--shape-pill);
+    background-color: var(--ember);
+    color: var(--crema);
+    letter-spacing: 0.12em;
+  }
+
+  body header nav .nav-sections .default-content-wrapper > ul > li .submenu-wrapper > ul > li > ul > li a:is([href$='/coffee'], [href$='/tea'], [href$='/equipment']):any-link:hover {
+    background-color: var(--ember-dark);
+    color: var(--crema);
+    text-decoration: none;
+  }
+
   /* simple dropdown (e.g. Account): items with no sub-lists become one narrow column under the item */
   body header nav .nav-sections .default-content-wrapper > ul > li.nav-drop-simple {
     position: relative;
