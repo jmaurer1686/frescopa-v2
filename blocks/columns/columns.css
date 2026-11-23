@@ -97,7 +97,14 @@ main .columns.oval .columns-img-col picture {
 
 /* address card in an arch */
 main .columns.card > div > div:last-child {
-  padding: 72px 36px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  width: min(100%, 420px);
+  min-height: 460px;
+  margin-inline: auto;
+  padding: 96px 36px 48px;
   border-radius: var(--shape-arch);
   background: var(--crema);
   color: var(--ink);
