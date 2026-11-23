@@ -978,6 +978,13 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
     min-width: 0;
   }
 
+  /* if the nav doc has more than one list, show them side by side, not stacked */
+  body header nav .nav-sections .default-content-wrapper {
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
   body header nav .nav-sections .default-content-wrapper > ul {
     flex-wrap: nowrap;
     gap: 0;
