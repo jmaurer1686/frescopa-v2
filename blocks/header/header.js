@@ -145,6 +145,8 @@ function setupSubmenu(navSection) {
     }
 
     const submenu = navSection.querySelector('ul');
+    // a dropdown with no nested lists (e.g. Account) is a plain link list, not a mega menu
+    if (!submenu.querySelector('ul')) navSection.classList.add('nav-drop-simple');
     const wrapper = document.createElement('div');
     const header = subMenuHeader.cloneNode(true);
     const title = document.createElement('h6');

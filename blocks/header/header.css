@@ -932,7 +932,7 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
   body header {
     position: sticky;
     top: 0;
-    z-index: 40;
+    z-index: 5;
   }
 }
 
@@ -1068,11 +1068,11 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
   }
 
   /* simple dropdown (e.g. Account): items with no sub-lists become one narrow column under the item */
-  body header nav .nav-sections .default-content-wrapper > ul > li:has(> .submenu-wrapper > ul:not(:has(> li > ul))) {
+  body header nav .nav-sections .default-content-wrapper > ul > li.nav-drop-simple {
     position: relative;
   }
 
-  body header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] .submenu-wrapper:has(> ul:not(:has(> li > ul))) {
+  body header nav .nav-sections .default-content-wrapper > ul > li.nav-drop-simple[aria-expanded='true'] .submenu-wrapper {
     left: 0;
     min-width: 240px;
     padding: var(--spacing-small) var(--spacing-medium);
@@ -1080,13 +1080,13 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
     width: max-content;
   }
 
-  body header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] .submenu-wrapper > ul:not(:has(> li > ul)) {
+  body header nav .nav-sections .default-content-wrapper > ul > li.nav-drop-simple[aria-expanded='true'] .submenu-wrapper > ul {
     flex-direction: column;
     gap: 0;
     width: auto;
   }
 
-  body header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] .submenu-wrapper > ul:not(:has(> li > ul)) > li {
+  body header nav .nav-sections .default-content-wrapper > ul > li.nav-drop-simple[aria-expanded='true'] .submenu-wrapper > ul > li {
     flex: 0 0 auto;
     max-width: none;
     min-width: 0;
@@ -1098,7 +1098,7 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
     color: var(--ember);
   }
 
-  body header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] .submenu-wrapper > ul:not(:has(> li > ul)) > li :is(a:any-link, button) {
+  body header nav .nav-sections .default-content-wrapper > ul > li.nav-drop-simple[aria-expanded='true'] .submenu-wrapper > ul > li :is(a:any-link, button) {
     display: block;
     padding: 10px 0;
     color: var(--ember);
@@ -1108,7 +1108,7 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
     text-transform: inherit;
   }
 
-  body header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] .submenu-wrapper > ul:not(:has(> li > ul)) > li :is(a:any-link, button):hover {
+  body header nav .nav-sections .default-content-wrapper > ul > li.nav-drop-simple[aria-expanded='true'] .submenu-wrapper > ul > li :is(a:any-link, button):hover {
     color: var(--roast);
     text-decoration: underline;
     text-underline-offset: 4px;
