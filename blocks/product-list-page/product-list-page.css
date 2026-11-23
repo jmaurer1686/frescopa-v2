@@ -81,6 +81,58 @@
     gap: var(--spacing-xxsmall);
 }
 
+/* Ritual look: filters */
+.block.product-list-page .product-discovery-facet__header {
+    color: var(--ink);
+    font-family: var(--heading-font-family);
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 0;
+}
+
+.block.product-list-page .product-discovery-facet {
+    border-color: rgb(73 20 24 / 15%);
+}
+
+.block.product-list-page .product-discovery-facet__bucket {
+    color: var(--ink);
+    font-size: 1.5rem;
+}
+
+.block.product-list-page .search__facets .dropin-button {
+    color: var(--ember);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.block.product-list-page .search__facets .dropin-button:hover {
+    color: var(--roast);
+}
+
+/* Ritual look: product cards */
+.block.product-list-page .dropin-product-item-card a:any-link:not(.dropin-button) {
+    color: var(--ink);
+    font-family: var(--heading-font-family);
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.2;
+}
+
+.block.product-list-page .dropin-product-item-card a:any-link:not(.dropin-button):hover {
+    color: var(--ember);
+    text-decoration: none;
+}
+
+.block.product-list-page .dropin-product-item-card .dropin-price {
+    color: var(--ink);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
 /* Empty State */
 
 .block.product-list-page.product-list-page--empty .search__wrapper {
