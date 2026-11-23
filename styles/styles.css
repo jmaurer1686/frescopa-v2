@@ -697,12 +697,17 @@ body.columns main > .section:empty {
   --shape-pill: 999px;
 }
 
+/* Bodoni Moda thins its hairlines as the size grows; keep the sturdier text cut at every size */
+html {
+  font-optical-sizing: none;
+}
+
 h1,
 h2,
 h3,
 h4 {
   font-family: var(--heading-font-family);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.015em;
   line-height: 1.05;
   color: var(--ink);
