@@ -125,6 +125,78 @@ main .columns.card > div > div:last-child a:any-link {
   text-decoration: underline;
 }
 
+/* stylelint-disable no-descending-specificity */
+
+/* ZIP field (store locator) */
+main .columns.card .columns-zip {
+  margin-top: 28px;
+}
+
+main .columns.card .columns-zip label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--roast);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+main .columns.card .columns-zip > div {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  max-width: 44rem;
+  padding: 4px 4px 4px 22px;
+  border-radius: 999px;
+  background: var(--roast);
+}
+
+main .columns.card .columns-zip:focus-within > div {
+  outline: 3px solid var(--roast);
+  outline-offset: 3px;
+}
+
+main .columns.card .columns-zip input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px 0;
+  border: 0;
+  background: transparent;
+  color: var(--crema);
+  font: inherit;
+  font-size: 1.7rem;
+}
+
+main .columns.card .columns-zip input:focus {
+  outline: none;
+}
+
+main .columns.card .columns-zip input::placeholder {
+  color: var(--crema-2);
+  opacity: 0.7;
+}
+
+main .columns.card .columns-zip button {
+  margin: 0;
+  padding: 13px 28px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--amber);
+  color: var(--roast);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+main .columns.card .columns-zip button:hover {
+  background: var(--amber-hover);
+}
+
+/* stylelint-enable no-descending-specificity */
+
 /* type and buttons used by the Ritual sections */
 main h1 em,
 main h2 em {
