@@ -134,7 +134,7 @@ main .product-details {
   --frescopa-gold: #e9a23b;
   --frescopa-cream: #f8f1e7;
   --frescopa-text: #4a3a36;
-  --frescopa-serif: georgia, 'Times New Roman', serif;
+  --frescopa-serif: var(--heading-font-family);
 }
 
 main .product-details .product-details__gallery {
