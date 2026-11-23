@@ -955,6 +955,59 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
     width: min(1200px, 100%);
   }
 
+  /* top bar items: small tracked caps, like the reference. The panel resets this below. */
+  body header nav .nav-sections .default-content-wrapper > ul > li {
+    font-size: 1.2rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  body header nav .nav-sections .default-content-wrapper > ul > li .submenu-wrapper {
+    text-transform: none;
+  }
+
+  /* keep the main items on one row */
+  body header nav {
+    gap: 0 16px;
+    max-width: 1400px;
+  }
+
+  body header nav .nav-sections {
+    min-width: 0;
+  }
+
+  body header nav .nav-sections .default-content-wrapper > ul {
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+
+  body header nav .nav-sections .default-content-wrapper > ul > li {
+    padding: var(--spacing-xsmall) 12px;
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1150px) {
+  body header nav .nav-sections .default-content-wrapper > ul > li {
+    padding: var(--spacing-xsmall) 8px;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+@media (min-width: 900px) {
+
+  /* "Shop all" pill: make a link bold in DA to get a button */
+  body header nav .nav-sections .submenu-wrapper a.button:any-link {
+    display: inline-flex;
+    margin-top: var(--spacing-medium);
+    background-color: var(--ember);
+    border-color: var(--ember);
+    color: var(--crema);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
   /* column heading */
   body header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] .submenu-wrapper > ul > li {
     flex: 1 1 0;
