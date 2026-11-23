@@ -27,10 +27,6 @@ footer .footer a:any-link:hover {
     text-underline-offset: 3px;
 }
 
-footer .storeview-switcher-button {
-    color: var(--crema);
-}
-
 footer .footer > div {
     margin: auto;
     max-width: 1200px;
@@ -43,6 +39,7 @@ footer .footer p {
 
 .storeview-switcher-button {
     background: transparent;
+    color: var(--crema);
     padding-left: 0;
 }
 

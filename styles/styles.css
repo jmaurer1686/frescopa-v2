@@ -645,7 +645,10 @@ body.columns main > .section:empty {
    Palette, type and shapes from the D1 prototype. Overrides the dropin
    design tokens above; loaded last so it wins. `.dropin-design` is included
    because dropin containers re-declare the tokens at that scope.
+   Intentionally overrides earlier rules, so these two lint rules are off here.
    ========================================================================== */
+
+/* stylelint-disable no-duplicate-selectors, no-descending-specificity */
 :root, .dropin-design {
   /* Ritual palette */
   --roast: #211208;
@@ -706,10 +709,21 @@ h4 {
   text-wrap: balance;
 }
 
-h1 { font-size: clamp(3.6rem, 1.6rem + 5vw, 7.2rem); }
-h2 { font-size: clamp(3rem, 1.6rem + 3vw, 5rem); }
-h3 { font-size: clamp(2.4rem, 1.6rem + 1.6vw, 3.4rem); }
-h4 { font-size: 2.4rem; }
+h1 {
+  font-size: clamp(3.6rem, 1.6rem + 5vw, 7.2rem);
+}
+
+h2 {
+  font-size: clamp(3rem, 1.6rem + 3vw, 5rem);
+}
+
+h3 {
+  font-size: clamp(2.4rem, 1.6rem + 1.6vw, 3.4rem);
+}
+
+h4 {
+  font-size: 2.4rem;
+}
 
 ::selection {
   background: var(--amber);
@@ -773,12 +787,35 @@ main .section.ember {
   padding: var(--spacing-xxlarge) 0;
 }
 
-main .section.roast { background: var(--roast); color: var(--crema); }
-main .section.amber { background: var(--amber); color: var(--roast); }
-main .section.crema { background: var(--crema); color: var(--ink); }
-main .section.coral { background: var(--coral); color: var(--roast); }
-main .section.teal { background: var(--teal); color: var(--crema); }
-main .section.ember { background: var(--ember); color: var(--crema); }
+main .section.roast {
+  background: var(--roast);
+  color: var(--crema);
+}
+
+main .section.amber {
+  background: var(--amber);
+  color: var(--roast);
+}
+
+main .section.crema {
+  background: var(--crema);
+  color: var(--ink);
+}
+
+main .section.coral {
+  background: var(--coral);
+  color: var(--roast);
+}
+
+main .section.teal {
+  background: var(--teal);
+  color: var(--crema);
+}
+
+main .section.ember {
+  background: var(--ember);
+  color: var(--crema);
+}
 
 main .section.roast :is(h1, h2, h3, h4),
 main .section.teal :is(h1, h2, h3, h4),
@@ -808,6 +845,8 @@ main .section.teal a.button:not(.amber, .roast) {
     animation: none !important;
   }
 }
+
+/* stylelint-enable no-duplicate-selectors, no-descending-specificity */
 
 /**
 * Reset main element visibility

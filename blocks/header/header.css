@@ -910,6 +910,7 @@ body header {
 }
 
 /* Ritual header: crema bar, sticky on desktop, semibold nav links */
+/* stylelint-disable no-descending-specificity */
 body header .nav-wrapper,
 body header nav .nav-tools,
 body header nav .nav-hamburger button {
@@ -934,6 +935,7 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
     z-index: 40;
   }
 }
+/* stylelint-enable no-descending-specificity */
 
 body header nav .nav-brand img {
   display: block;
