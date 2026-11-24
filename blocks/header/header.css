@@ -1174,7 +1174,7 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
   box-sizing: border-box;
   height: var(--announcement-height);
   padding: 0 var(--spacing-small);
-  background-color: var(--ember);
+  background-color: var(--teal);
   color: var(--crema);
   font-size: 1.2rem;
   font-weight: 600;
