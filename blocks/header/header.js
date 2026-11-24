@@ -467,6 +467,25 @@ export default async function decorate(block) {
     suggestPanel.hidden = terms.length === 0;
   }
 
+  // Short phrases from product names: the typed words plus the word that follows (or precedes) them
+  function phrasesFrom(phrase, names) {
+    const q = phrase.trim().toLowerCase().split(/\s+/);
+    const found = names.map((name) => {
+      const words = name.replace(/[,()]/g, ' ').split(/\s+/).filter(Boolean);
+      const lower = words.map((w) => w.toLowerCase());
+      const at = lower.findIndex((_, i) => q.every((w, k) => lower[i + k]?.startsWith(w)));
+      if (at < 0) return null;
+      const matched = lower.slice(at, at + q.length).join(' ');
+      const usable = (w) => w && w.length > 2 && !/\d/.test(w);
+      const next = words[at + q.length];
+      const prev = words[at - 1];
+      if (usable(next)) return `${matched} ${next.toLowerCase()}`;
+      if (usable(prev)) return `${prev.toLowerCase()} ${matched}`;
+      return null;
+    });
+    return [...new Set(found.filter(Boolean))];
+  }
+
   let suggestionsBound = false;
   function bindSuggestions() {
     if (suggestionsBound) return;
@@ -479,12 +498,13 @@ export default async function decorate(block) {
       }
       const fromApi = (result?.suggestions || []).filter(Boolean);
       const names = (result?.items || []).map((p) => p.name).filter(Boolean);
-      renderSuggestions(phrase, [...new Set([...fromApi, ...names])]);
+      const phrases = [...new Set([...fromApi, ...phrasesFrom(phrase, names)])];
+      renderSuggestions(phrase, phrases.length ? phrases : names);
     }, { scope: 'popover' });
   }
 
   async function toggleSearch(state) {
-    const pageSize = 6;
+    const pageSize = 4;
 
     if (state) {
       bindSuggestions();
