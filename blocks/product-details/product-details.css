@@ -182,16 +182,17 @@ main .product-details .product-details__price .dropin-price {
 }
 
 main .product-details .product-details__buttons__add-to-cart .dropin-button--primary {
-  border-color: var(--frescopa-maroon);
-  background-color: var(--frescopa-maroon);
-  color: #fff;
+  border-color: var(--amber);
+  background-color: var(--amber);
+  color: var(--roast);
+  font-weight: 700;
 }
 
 main .product-details .product-details__buttons__add-to-cart .dropin-button--primary:hover,
 main .product-details .product-details__buttons__add-to-cart .dropin-button--primary:focus-visible {
-  border-color: var(--frescopa-gold);
-  background-color: var(--frescopa-gold);
-  color: var(--frescopa-maroon-dark);
+  border-color: var(--amber-hover);
+  background-color: var(--amber-hover);
+  color: var(--roast);
 }
 
 @media (min-width: 900px) {

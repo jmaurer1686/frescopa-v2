@@ -764,6 +764,25 @@ button.button:hover {
   color: var(--roast);
 }
 
+/* commerce primary buttons (product page, cart, checkout): amber with dark text */
+body .dropin-button--primary:not(:disabled) {
+  border-color: var(--amber);
+  background-color: var(--amber);
+  color: var(--roast);
+}
+
+body .dropin-button--primary:hover:not(:disabled),
+body .dropin-button--primary:focus-visible:not(:disabled) {
+  border-color: var(--amber-hover);
+  background-color: var(--amber-hover);
+  color: var(--roast);
+}
+
+body .dropin-button--primary:not(:disabled) svg,
+body .dropin-button--primary:not(:disabled) svg path {
+  stroke: var(--roast);
+}
+
 /* variants usable from DA: "button amber", "button roast" */
 a.button.amber,
 button.button.amber {
