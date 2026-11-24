@@ -9,9 +9,9 @@
     "total": 10, "offset": 0, "limit": 10,
     "data": [
       { "key": "ecid", "value": "48201937465028391746502837192046" },
-      { "key": "email", "value": "maya.alvarez@example.com" },
-      { "key": "name", "value": "Maya Alvarez" },
-      { "key": "gender", "value": "Female" },
+      { "key": "email", "value": "Jason.maurer@example.com" },
+      { "key": "name", "value": "Jason Maurer" },
+      { "key": "gender", "value": "Male" },
       { "key": "birth-date", "value": "Mar 14, 1988" },
       { "key": "address", "value": "412 Alder St, Portland, OR 97205" },
       { "key": "loyalty-level", "value": "Ritual Gold" },
