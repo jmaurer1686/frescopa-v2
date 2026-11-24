@@ -185,13 +185,17 @@ export default async function decorate(block) {
             },
           });
 
-          anchorWrapper.classList.add('plp-image-link');
+          // The dropin re-renders the link's contents, so the badge sits beside the link
+          // inside a wrapper instead of inside it.
           const badge = getBadge(product);
-          if (badge) {
+          if (badge && anchorWrapper.parentNode) {
+            const frame = document.createElement('div');
+            frame.className = 'plp-image-link';
             const tag = document.createElement('span');
             tag.className = `plp-badge plp-badge--${badge.type}`;
             tag.textContent = badge.label;
-            anchorWrapper.append(tag);
+            anchorWrapper.replaceWith(frame);
+            frame.append(anchorWrapper, tag);
           }
         },
         ProductActions: (ctx) => {
