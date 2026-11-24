@@ -175,7 +175,12 @@ export default async function decorate(block) {
           anchorWrapper.href = getProductLink(product.urlKey, product.sku);
           anchorWrapper.setAttribute('aria-label', product.name || product.sku);
 
-          tryRenderAemAssetsImage(ctx, {
+          const badge = getBadge(product);
+          // The dropin re-renders the link's contents, so a badge sits beside the link,
+          // inside a frame, instead of inside it. The frame replaces the slot in one step.
+          const target = badge ? { replaceWith: () => {} } : ctx;
+
+          tryRenderAemAssetsImage(target, {
             alias: product.sku,
             imageProps: defaultImageProps,
             wrapper: anchorWrapper,
@@ -185,17 +190,14 @@ export default async function decorate(block) {
             },
           });
 
-          // The dropin re-renders the link's contents, so the badge sits beside the link
-          // inside a wrapper instead of inside it.
-          const badge = getBadge(product);
-          if (badge && anchorWrapper.parentNode) {
+          if (badge) {
             const frame = document.createElement('div');
             frame.className = 'plp-image-link';
             const tag = document.createElement('span');
             tag.className = `plp-badge plp-badge--${badge.type}`;
             tag.textContent = badge.label;
-            anchorWrapper.replaceWith(frame);
             frame.append(anchorWrapper, tag);
+            ctx.replaceWith(frame);
           }
         },
         ProductActions: (ctx) => {
