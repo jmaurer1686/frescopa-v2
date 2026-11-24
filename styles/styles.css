@@ -884,6 +884,7 @@ main .section:is(.amber, .coral) a.button:not(.amber, .roast):hover {
 
 /* the home page "All guides" button sits centered under the tiles */
 main .default-content-wrapper > p.button-wrapper:has(> a.button[href$='/learn']) {
+  max-width: none;
   text-align: center;
 }
 
