@@ -882,6 +882,27 @@ main .section:is(.amber, .coral) a.button:not(.amber, .roast):hover {
   color: var(--crema);
 }
 
+/* article text on crema (guides, Our story, Sourcing): comfortable line length and spacing */
+main .section.crema .default-content-wrapper > :is(p, ul, ol) {
+  max-width: 68ch;
+}
+
+main .section.crema .default-content-wrapper > :is(ul, ol) {
+  padding-left: 2.4rem;
+}
+
+main .section.crema .default-content-wrapper li {
+  margin-bottom: 8px;
+}
+
+main .section.crema .default-content-wrapper > h2 {
+  margin-top: 1.4em;
+}
+
+main .section.crema .default-content-wrapper > h2:first-child {
+  margin-top: 0;
+}
+
 /* arch frame for an image wrapper (not the columns/cards blocks, which style their own pictures/tiles) */
 .arch:not(.columns, .cards) {
   border-radius: var(--shape-arch);
