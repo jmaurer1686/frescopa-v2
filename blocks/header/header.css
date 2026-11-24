@@ -1014,9 +1014,9 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
   body header nav .nav-sections .submenu-wrapper a.button:any-link {
     display: inline-flex;
     margin-top: var(--spacing-medium);
-    background-color: var(--ember);
-    border-color: var(--ember);
-    color: var(--crema);
+    background-color: var(--amber);
+    border-color: var(--amber);
+    color: var(--roast);
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
@@ -1085,8 +1085,9 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
     margin: 0;
     padding: 14px 30px;
     border-radius: var(--shape-pill);
-    background-color: var(--ember);
-    color: var(--crema);
+    background-color: var(--amber);
+    color: var(--roast);
+    font-weight: 700;
     letter-spacing: 0.12em;
   }
 
@@ -1096,8 +1097,8 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
   }
 
   body header nav .nav-sections .default-content-wrapper > ul > li .submenu-wrapper > ul > li > ul > li a:is([href$='/coffee'], [href$='/tea'], [href$='/equipment']):any-link:hover {
-    background-color: var(--ember-dark);
-    color: var(--crema);
+    background-color: var(--amber-hover);
+    color: var(--roast);
     text-decoration: none;
   }
 

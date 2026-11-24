@@ -749,6 +749,21 @@ button.button:hover {
   text-decoration: none;
 }
 
+/* default call to action: amber with dark text (no red, red reads as "stop") */
+main a.button:any-link,
+button.button {
+  border-color: var(--amber);
+  background-color: var(--amber);
+  color: var(--roast);
+}
+
+main a.button:any-link:hover,
+button.button:hover {
+  border-color: var(--amber-hover);
+  background-color: var(--amber-hover);
+  color: var(--roast);
+}
+
 /* variants usable from DA: "button amber", "button roast" */
 a.button.amber,
 button.button.amber {
@@ -829,6 +844,19 @@ main .section.teal a.button:not(.amber, .roast) {
   border-color: var(--crema);
   background-color: var(--crema);
   color: var(--roast);
+}
+
+/* on warm grounds amber would disappear: dark button instead */
+main .section:is(.amber, .coral) a.button:not(.amber, .roast) {
+  border-color: var(--roast);
+  background-color: var(--roast);
+  color: var(--crema);
+}
+
+main .section:is(.amber, .coral) a.button:not(.amber, .roast):hover {
+  border-color: var(--roast-2);
+  background-color: var(--roast-2);
+  color: var(--crema);
 }
 
 /* arch frame for an image wrapper (not the columns/cards blocks, which style their own pictures/tiles) */
