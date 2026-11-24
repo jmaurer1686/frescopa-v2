@@ -37,6 +37,10 @@ footer .footer p {
     margin: 0;
 }
 
+footer .footer p + p {
+    margin-top: 12px;
+}
+
 .storeview-switcher-button {
     background: transparent;
     color: var(--crema);
