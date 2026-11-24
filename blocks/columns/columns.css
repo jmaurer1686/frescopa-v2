@@ -127,29 +127,6 @@ main .columns.card > div > div:last-child a:any-link {
 
 /* stylelint-disable no-descending-specificity */
 
-/* compact hero for category pages: Columns (arch, compact), about as tall as a text-only banner */
-main .section:has(.columns.compact) {
-  padding-block: 32px;
-}
-
-main .columns.arch.compact .columns-img-col picture {
-  width: 180px;
-  margin-inline: auto 0;
-}
-
-/* no amber sun behind the small arch */
-main .columns.arch.compact .columns-img-col::before {
-  display: none;
-}
-
-main .columns.arch.compact h1 {
-  font-size: clamp(3.6rem, 1.6rem + 4vw, 6rem);
-}
-
-main .columns.arch.compact p {
-  max-width: 56ch;
-}
-
 /* ZIP field (store locator) */
 main .columns.card .columns-zip {
   margin-top: 28px;
