@@ -882,6 +882,11 @@ main .section:is(.amber, .coral) a.button:not(.amber, .roast):hover {
   color: var(--crema);
 }
 
+/* the home page "All guides" button sits centered under the tiles */
+main .default-content-wrapper > p.button-container:has(> a.button[href$='/learn']) {
+  text-align: center;
+}
+
 /* article text on crema (guides, Our story, Sourcing): comfortable line length and spacing */
 main .section.crema .default-content-wrapper > :is(p, ul, ol) {
   max-width: 68ch;
