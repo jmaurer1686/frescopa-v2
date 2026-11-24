@@ -101,6 +101,19 @@ export default async function decorate(block) {
   const requiresPdpConfiguration = (product) => product.typename === 'ComplexProductView'
     || product.attributes?.some((attr) => attr.name === 'ac_giftcard');
 
+  // Badge on the product image: a catalog "badge" attribute wins,
+  // then Sale (price drop), then Sold out
+  const getBadge = (product) => {
+    const custom = product.attributes?.find((a) => a.name === 'badge')?.value;
+    if (custom) return { type: 'custom', label: String(custom) };
+    const price = product.price || product.priceRange?.minimum;
+    const regular = Number(price?.regular?.amount?.value);
+    const final = Number(price?.final?.amount?.value);
+    if (regular && final && final < regular) return { type: 'sale', label: 'Sale' };
+    if (product.inStock === false) return { type: 'out', label: 'Sold out' };
+    return null;
+  };
+
   const getAddToCartButton = (product) => {
     const productName = product.name || product.sku;
     const addToCartLabel = `${labels.Global?.AddProductToCart} ${productName}`;
@@ -171,6 +184,15 @@ export default async function decorate(block) {
               height: defaultImageProps.height,
             },
           });
+
+          anchorWrapper.classList.add('plp-image-link');
+          const badge = getBadge(product);
+          if (badge) {
+            const tag = document.createElement('span');
+            tag.className = `plp-badge plp-badge--${badge.type}`;
+            tag.textContent = badge.label;
+            anchorWrapper.append(tag);
+          }
         },
         ProductActions: (ctx) => {
           const actionsWrapper = document.createElement('div');
@@ -192,6 +214,33 @@ export default async function decorate(block) {
       },
     })($productList),
   ]);
+
+  // Collapsible facets: click (or Enter/Space) on a facet title to fold it
+  const toggleFacet = (header) => {
+    const facet = header.closest('.product-discovery-facet');
+    if (!facet) return;
+    const collapsed = facet.classList.toggle('is-collapsed');
+    header.setAttribute('aria-expanded', String(!collapsed));
+  };
+  $facets.addEventListener('click', (e) => {
+    const header = e.target.closest('.product-discovery-facet__header');
+    if (header) toggleFacet(header);
+  });
+  $facets.addEventListener('keydown', (e) => {
+    const header = e.target.closest('.product-discovery-facet__header');
+    if (header && (e.key === 'Enter' || e.key === ' ')) {
+      e.preventDefault();
+      toggleFacet(header);
+    }
+  });
+  new MutationObserver(() => {
+    $facets.querySelectorAll('.product-discovery-facet__header:not([role])').forEach((header) => {
+      header.setAttribute('role', 'button');
+      header.setAttribute('tabindex', '0');
+      const facet = header.closest('.product-discovery-facet');
+      header.setAttribute('aria-expanded', String(!facet?.classList.contains('is-collapsed')));
+    });
+  }).observe($facets, { childList: true, subtree: true });
 
   // Listen for search results (event is fired before the block is rendered; eager: true)
   events.on('search/result', (payload) => {
