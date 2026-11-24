@@ -15,6 +15,9 @@ const isDesktop = window.matchMedia('(min-width: 900px)');
 
 const labels = await fetchPlaceholders();
 
+// shown in the search panel before anything is typed
+const POPULAR_SEARCHES = ['Espresso', 'Cold brew', 'Chai', 'Decaf', 'French press', 'Gift sets'];
+
 const overlay = document.createElement('div');
 overlay.classList.add('overlay');
 document.querySelector('header').insertAdjacentElement('afterbegin', overlay);
@@ -420,7 +423,13 @@ export default async function decorate(block) {
     <button type="button" class="nav-search-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="search-panel">${labels.Global?.Search ?? 'Search'}</button>
     <div class="nav-search-input nav-search-panel nav-tools-panel" id="search-panel">
       <form id="search-bar-form"></form>
-      <div class="search-bar-result" style="display: none;"></div>
+      <div class="search-body">
+        <div class="search-bar-result" style="display: none;"></div>
+        <aside class="search-suggest" hidden>
+          <h3 class="search-suggest-title"></h3>
+          <ul class="search-suggest-list"></ul>
+        </aside>
+      </div>
     </div>
   </div>
   `);
@@ -432,10 +441,54 @@ export default async function decorate(block) {
   const searchForm = searchPanel.querySelector('#search-bar-form');
   const searchResult = searchPanel.querySelector('.search-bar-result');
 
+  // Suggested / popular searches, shown beside the product results
+  const suggestPanel = searchPanel.querySelector('.search-suggest');
+  const suggestTitle = searchPanel.querySelector('.search-suggest-title');
+  const suggestList = searchPanel.querySelector('.search-suggest-list');
+
+  function renderSuggestions(phrase, terms) {
+    const typed = phrase.trim();
+    suggestTitle.textContent = typed ? 'Suggested searches' : 'Popular searches';
+    suggestList.replaceChildren(...terms.slice(0, 8).map((term) => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `${rootLink('/search')}?q=${encodeURIComponent(term)}`;
+      const at = typed ? term.toLowerCase().indexOf(typed.toLowerCase()) : -1;
+      if (at >= 0) {
+        const match = document.createElement('strong');
+        match.textContent = term.slice(at, at + typed.length);
+        a.append(term.slice(0, at), match, term.slice(at + typed.length));
+      } else {
+        a.textContent = term;
+      }
+      li.append(a);
+      return li;
+    }));
+    suggestPanel.hidden = terms.length === 0;
+  }
+
+  let suggestionsBound = false;
+  function bindSuggestions() {
+    if (suggestionsBound) return;
+    suggestionsBound = true;
+    events.on('search/result', ({ request, result }) => {
+      const phrase = request?.phrase || '';
+      if (!phrase) {
+        renderSuggestions('', POPULAR_SEARCHES);
+        return;
+      }
+      const fromApi = (result?.suggestions || []).filter(Boolean);
+      const names = (result?.items || []).map((p) => p.name).filter(Boolean);
+      renderSuggestions(phrase, [...new Set([...fromApi, ...names])]);
+    }, { scope: 'popover' });
+  }
+
   async function toggleSearch(state) {
-    const pageSize = 4;
+    const pageSize = 6;
 
     if (state) {
+      bindSuggestions();
+      if (!searchForm.querySelector('input')?.value) renderSuggestions('', POPULAR_SEARCHES);
       await withLoadingState(searchPanel, searchButton, async () => {
         await import('../../scripts/initializers/search.js');
 
@@ -512,6 +565,7 @@ export default async function decorate(block) {
           onValue: (phrase) => {
             if (!phrase) {
               search(null, { scope: 'popover' });
+              renderSuggestions('', POPULAR_SEARCHES);
               return;
             }
 

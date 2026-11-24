@@ -430,14 +430,19 @@ header .nav-search-panel .search-bar-result {
   position: relative;
 }
 
+/* Popover List: vertical cards in a grid, matching the product list page */
 header .nav-search-panel .search-bar-result .product-discovery-product-list__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
   margin-block: var(--spacing-small);
 }
 
-/* Popover List */
 header .nav-search-panel .search-bar-result .dropin-product-item-card {
-  display: grid;
-  grid-template-columns: 60px 1fr;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--roast-2);
+  color: var(--crema);
 }
 
 /* Product Item Skeleton */
@@ -499,7 +504,7 @@ header .nav-search-input .search_autocomplete .popover-container {
   }
 
   header nav .nav-search-panel {
-    width: 398px;
+    width: min(1000px, calc(100vw - 64px));
   }
 }
 
@@ -1283,3 +1288,144 @@ body header nav .nav-sections ul > li ul > li a:any-link {
     text-decoration: none;
   }
 }
+
+/* Search panel (Ritual): wide dropdown, product cards left, suggested searches right */
+/* stylelint-disable no-descending-specificity, no-duplicate-selectors */
+body header nav .nav-search-panel {
+  padding: 24px;
+  border-radius: 24px;
+  background: var(--crema-light);
+  box-shadow: 0 24px 60px rgb(33 18 8 / 28%);
+}
+
+body header .nav-search-panel input {
+  padding: 14px 22px;
+  border: 2px solid var(--roast);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--roast);
+  font-family: var(--type-base-font-family);
+  font-size: 1.8rem;
+  letter-spacing: 0;
+}
+
+body header .nav-search-panel input:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+}
+
+header .nav-search-panel .search-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+  margin-top: 24px;
+}
+
+/* only suggestions showing (nothing typed yet): single column */
+header .nav-search-panel .search-body:has(.search-bar-result[style*='display: none']) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+header .nav-search-panel .search-suggest[hidden] {
+  display: none;
+}
+
+header .nav-search-panel .search-suggest-title {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-family: var(--heading-font-family);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+header .nav-search-panel .search-suggest-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header .nav-search-panel .search-suggest-list li {
+  margin: 0;
+}
+
+header .nav-search-panel .search-suggest-list a {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 8px;
+  border-radius: 12px;
+  background: url('../../icons/search.svg') no-repeat 8px center / 20px;
+  padding-left: 40px;
+  color: rgb(73 20 24 / 65%);
+  font-size: 1.7rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+header .nav-search-panel .search-suggest-list a strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+header .nav-search-panel .search-suggest-list a:hover,
+header .nav-search-panel .search-suggest-list a:focus-visible {
+  background-color: var(--crema-2);
+  color: var(--ink);
+}
+
+/* result cards */
+header .nav-search-panel .search-bar-result .dropin-product-item-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+header .nav-search-panel .search-bar-result .dropin-product-item-card a:any-link {
+  color: var(--crema);
+  font-family: var(--heading-font-family);
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+header .nav-search-panel .search-bar-result .dropin-product-item-card a:any-link:hover {
+  color: var(--amber);
+}
+
+header .nav-search-panel .search-bar-result .dropin-product-item-card__content {
+  padding: 12px 14px 16px;
+}
+
+header .nav-search-panel .search-bar-result .dropin-price {
+  color: var(--amber);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+header .nav-search-panel .search-bar-result .product-discovery-product-list__footer {
+  margin-top: 20px;
+}
+
+header .nav-search-panel .search-bar-result .product-discovery-product-list__footer :is(a, button) {
+  border-color: var(--amber);
+  border-radius: 999px;
+  background-color: var(--amber);
+  color: var(--roast);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+  header .nav-search-panel .search-body:not(:has(.search-bar-result[style*='display: none'])) {
+    grid-template-columns: minmax(0, 1fr) 280px;
+  }
+
+  header .nav-search-panel .search-bar-result .product-discovery-product-list__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+/* stylelint-enable no-descending-specificity, no-duplicate-selectors */
