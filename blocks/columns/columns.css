@@ -217,7 +217,7 @@ main .section.roast .columns.arch a.button:any-link {
 main .section.crema .columns p > em:only-child {
   display: block;
   max-width: 26ch;
-  color: var(--ember);
+  color: var(--ink);
   font-family: var(--heading-font-family);
   font-size: 2.6rem;
   line-height: 1.25;

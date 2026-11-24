@@ -911,7 +911,7 @@ body:has(.seller-assisted-buying-banner) {
 }
 
 body header {
-  --frescopa-maroon: var(--ember);
+  --frescopa-maroon: var(--ink);
   --frescopa-cream: var(--crema-2);
 }
 
@@ -1066,13 +1066,15 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--ember);
+    color: var(--roast);
   }
 
   body header nav .nav-sections .default-content-wrapper > ul > li .submenu-wrapper > ul > li > ul > li a:any-link:hover {
     color: var(--roast);
     text-decoration: underline;
-    text-underline-offset: 4px;
+    text-decoration-color: var(--amber);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
   }
 
   /* "Shop all" links (they point at a top-level category) render as a pill */
@@ -1130,13 +1132,13 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--ember);
+    color: var(--roast);
   }
 
   body header nav .nav-sections .default-content-wrapper > ul > li.nav-drop-simple[aria-expanded='true'] .submenu-wrapper > ul > li :is(a:any-link, button) {
     display: block;
     padding: 10px 0;
-    color: var(--ember);
+    color: var(--roast);
     font: inherit;
     letter-spacing: inherit;
     text-align: start;
@@ -1146,7 +1148,9 @@ body header nav .nav-sections .default-content-wrapper > ul > li > p > a:any-lin
   body header nav .nav-sections .default-content-wrapper > ul > li.nav-drop-simple[aria-expanded='true'] .submenu-wrapper > ul > li :is(a:any-link, button):hover {
     color: var(--roast);
     text-decoration: underline;
-    text-underline-offset: 4px;
+    text-decoration-color: var(--amber);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
   }
 
   /* featured product column */

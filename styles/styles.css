@@ -662,6 +662,7 @@ body.columns main > .section:empty {
   --ember-dark: #831a18;
   --ember-light: #d95544;
   --teal: #00647d;
+  --green: #1f4a3a;
   --coral: #eb7955;
   --ink: #491418;
 
@@ -810,11 +811,13 @@ button.button.roast:hover {
   background-color: var(--roast-2);
 }
 
-/* one colour ground per section: Section Metadata "Style" = roast | amber | crema | coral | teal | ember */
+/* one colour ground per section: Section Metadata "Style" = roast | amber | crema | coral | green | ember
+   ("teal" is kept as an alias of green for pages built earlier) */
 main .section.roast,
 main .section.amber,
 main .section.crema,
 main .section.coral,
+main .section.green,
 main .section.teal,
 main .section.ember {
   margin: 0;
@@ -841,8 +844,9 @@ main .section.coral {
   color: var(--roast);
 }
 
+main .section.green,
 main .section.teal {
-  background: var(--teal);
+  background: var(--green);
   color: var(--crema);
 }
 
@@ -852,14 +856,14 @@ main .section.ember {
 }
 
 main .section.roast :is(h1, h2, h3, h4),
+main .section.green :is(h1, h2, h3, h4),
 main .section.teal :is(h1, h2, h3, h4),
 main .section.ember :is(h1, h2, h3, h4) { color: var(--crema); }
 
 main .section.amber :is(h1, h2, h3, h4),
 main .section.coral :is(h1, h2, h3, h4) { color: var(--roast); }
 
-main .section.roast a.button:not(.amber, .roast),
-main .section.teal a.button:not(.amber, .roast) {
+main .section.roast a.button:not(.amber, .roast) {
   border-color: var(--crema);
   background-color: var(--crema);
   color: var(--roast);
