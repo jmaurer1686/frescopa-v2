@@ -1,0 +1,41 @@
+{
+  "total": 3,
+  "offset": 0,
+  "limit": 3,
+  ":names": ["profile", "audiences", "events"],
+  ":version": 3,
+  ":type": "multi-sheet",
+  "profile": {
+    "total": 10, "offset": 0, "limit": 10,
+    "data": [
+      { "key": "ecid", "value": "48201937465028391746502837192046" },
+      { "key": "email", "value": "maya.alvarez@example.com" },
+      { "key": "name", "value": "Maya Alvarez" },
+      { "key": "gender", "value": "Female" },
+      { "key": "birth-date", "value": "Mar 14, 1988" },
+      { "key": "address", "value": "412 Alder St, Portland, OR 97205" },
+      { "key": "loyalty-level", "value": "Ritual Gold" },
+      { "key": "loyalty-points", "value": "2,840" },
+      { "key": "favorite-roast", "value": "Medium" },
+      { "key": "preferred-brew", "value": "Pour-over" }
+    ]
+  },
+  "audiences": {
+    "total": 4, "offset": 0, "limit": 4,
+    "data": [
+      { "timestamp": "2026-11-20T14:05:00Z", "status": "realized", "name": "Pour-over Enthusiasts" },
+      { "timestamp": "2026-11-18T09:30:00Z", "status": "realized", "name": "Medium Roast Lovers" },
+      { "timestamp": "2026-11-12T17:45:00Z", "status": "realized", "name": "Black Friday Shoppers" },
+      { "timestamp": "2026-10-30T11:10:00Z", "status": "exited", "name": "Lapsed Tea Buyers" }
+    ]
+  },
+  "events": {
+    "total": 4, "offset": 0, "limit": 4,
+    "data": [
+      { "date": "Nov 20, 2026", "time": "2:05 PM", "event-type": "productPageView", "data": "Viewed: Pour-over Brewer (SKU: fre-eqp-lpo)" },
+      { "date": "Nov 20, 2026", "time": "2:01 PM", "event-type": "searchRequestSent", "data": "Searched: \"medium roast\"" },
+      { "date": "Nov 18, 2026", "time": "9:30 AM", "event-type": "addToCart", "data": "Added to cart: Morning Ritual Blend 12oz" },
+      { "date": "Nov 12, 2026", "time": "5:45 PM", "event-type": "pageView", "data": "Visited: Black Friday Sale" }
+    ]
+  }
+}
