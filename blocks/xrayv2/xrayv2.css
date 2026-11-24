@@ -1,7 +1,7 @@
 /* ── Trigger button ──────────────────────────────────────────── */
 .xray-trigger {
   position: fixed;
-  bottom: 24px;
+  top: 0;
   left: 0;
   z-index: 9999;
   width: 40px;
